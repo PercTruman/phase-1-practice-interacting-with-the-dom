@@ -11,7 +11,7 @@ let myCounter = setInterval(countUp, 1000)
     document.querySelector('#minus').addEventListener('click', minusOne)
     document.querySelector('#plus').addEventListener('click', plusOne)
     document.querySelector('#heart').addEventListener('click', like)
-    document.querySelector('#pause').addEventListener('click', pause)
+    document.querySelector('#pause').addEventListener('click', pauseAndResume)
 
 
 function countUp(){
@@ -41,16 +41,14 @@ function like(){
     
    }
 
-function pause(){
+function pauseAndResume(){
     
     if (document.querySelector('#pause').textContent === 'pause'){
         clearInterval(myCounter)
-        console.log(myCounter)
         document.querySelector('#pause').textContent = 'resume'
         disableButtons()
     }else{
         myCounter = setInterval(countUp, 1000)
-        console.log('hello world')
         document.querySelector('#pause').textContent = 'pause'
         document.querySelector('#minus').addEventListener('click', minusOne)
         document.querySelector('#plus').addEventListener('click', plusOne)
