@@ -1,3 +1,4 @@
+
 let counterElement = document.getElementById('counter')
 let counter = 0
 let likeCounter = 1
@@ -12,6 +13,11 @@ let myCounter = setInterval(countUp, 1000)
     document.querySelector('#plus').addEventListener('click', plusOne)
     document.querySelector('#heart').addEventListener('click', like)
     document.querySelector('#pause').addEventListener('click', pauseAndResume)
+    document.querySelector('form').addEventListener('submit', (e)=>{
+        e.preventDefault()
+        addComment(e.target.comment_input.value)
+    })
+    
 
 
 function countUp(){
@@ -60,6 +66,14 @@ function disableButtons(){
     document.querySelector('#minus').removeEventListener('click', minusOne)
     document.querySelector('#plus').removeEventListener('click', plusOne)
     document.querySelector('#heart').removeEventListener('click', like)
+}
+
+function addComment(comment){
+    const newElement = document.createElement('p')
+    newElement.textContent = comment
+    document.getElementById('list').appendChild(newElement)
+    // console.log(newElement.textContent)
+    
 }
     
 
